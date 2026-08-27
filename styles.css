@@ -22,7 +22,6 @@ div{background-color: rgb(255, 0, 215);
 textarea {
     field-sizing: content;
     min-height: 1lh;
-    max-height:fit-content;
     resize: vertical;
     width: 75%;
     vertical-align: top;
