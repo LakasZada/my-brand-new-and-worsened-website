@@ -5,3 +5,24 @@ div{background-color: rgb(255, 0, 215);
     padding: 15px;
     margin:5%;
 }
+#ai{background-color: rgb(19, 0, 54);
+    border: 5px solid rgb(255, 0, 200);
+    padding: 15px;
+    margin:5%;
+    color:rgb(255, 0, 216)
+}
+#prompt{background-color: rgb(19, 0, 60);
+    border: none;
+    color: rgb(57, 255, 20);
+}
+#prompt:focus{
+    border: none;
+    outline:none;
+}
+textarea {
+    field-sizing: content;
+    min-height: 1lh;
+    max-height:fit-content;
+    resize: vertical;
+    width: 75%;
+}
