@@ -25,4 +25,5 @@ textarea {
     max-height:fit-content;
     resize: vertical;
     width: 75%;
+    vertical-align: top;
 }
