@@ -1,11 +1,20 @@
-console.log("Bad-ai JS initiated");
+console.log("Bad-ai initiated");
 let model = "smollm:135m";
-console.log(model);
 let prompt = document.getElementById("prompt");
+let history = document.getElementById("history");
 function enter() {
-    let userPrompt = document.createElement("p");
+    let userText = document.createElement("p");
+    let userPrefix = document.createElement("span");
+    let userPrompt = document.createElement("span");
+    userPrefix.textContent = "[user@node2 ~ ]$ ";
+    userPrefix.className = "userPrefix";
+    userPrompt.className = "userPrompt";
     userPrompt.textContent = prompt.value;
-    console.log(userPrompt);
+    askOllama(prompt.value);
+    userText.appendChild(userPrefix);
+    userText.appendChild(userPrompt);
+    history.appendChild(userText);
+    prompt.value = "";
 }
 prompt.addEventListener("keydown", function (event){
     if (event.key === "Enter"){
@@ -13,4 +22,18 @@ prompt.addEventListener("keydown", function (event){
         event.preventDefault();
     }
 });
-
+function askOllama(message){
+    let url = "https://ollama-api.ypac.lt/api/generate"
+    let options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            model: model,
+            prompt: message,
+            stream: false
+        })
+    };
+    fetch(url, options);
+}

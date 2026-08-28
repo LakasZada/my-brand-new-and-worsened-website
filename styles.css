@@ -9,7 +9,7 @@ body{background-color: rgb(95, 0, 177);
     border: 5px solid rgb(255, 0, 200);
     padding: 15px;
     margin:5%;
-    color:rgb(255, 0, 216)
+    color:rgb(255, 0, 216);
 }
 #prompt{background-color: rgb(19, 0, 60);
     border: none;
@@ -25,4 +25,10 @@ textarea {
     resize: vertical;
     width: 75%;
     vertical-align: top;
+}
+.userPrefix{
+    color: rgb(255, 85, 0);
+}
+.userPrompt{
+    color:rgb(57, 255, 20);
 }
