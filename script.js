@@ -44,16 +44,29 @@ async function askOllama(message){
         body: JSON.stringify({
             model: model,
             prompt: message,
-            stream: false
+            stream: true
         })
     };
+
     let fullResponse = await fetch(url, options);
-    let jsonResponse = await fullResponse.json();
+    let reader = fullResponse.body.getReader();
+    let chunk = await reader.read();
+    let decoder = new TextDecoder();
+    let decodedChunk = decoder.decode(chunk.value);
+    let parsedChunk = JSON.parse(decodedChunk)
     aiPrefix.textContent = model + ">> ";
     aiPrefix.className = "aiPrefix";
     aiResponse.className = "aiResponse";
-    aiResponse.textContent = jsonResponse.response;
     aiText.appendChild(aiPrefix);
     aiText.appendChild(aiResponse);
     history.appendChild(aiText);
+    while (parsedChunk.done != true){
+        aiResponse.append(parsedChunk.response)
+        chunk = await reader.read();
+        decodedChunk = decoder.decode(chunk.value)
+        parsedChunk = JSON.parse(decodedChunk)
+    };
+    console.log(parsedChunk);
+    console.log(parsedChunk.response);
+
 }
