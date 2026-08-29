@@ -2,6 +2,15 @@ console.log("Bad-ai initiated");
 let model = "smollm:360m";
 let prompt = document.getElementById("prompt");
 let history = document.getElementById("history");
+let switchModel = document.getElementById("switch")
+switchModel.addEventListener("click",function (event){
+    if (model === "smollm:360m"){
+        model = "smollm2:360m"
+    }
+    else {
+        model = "smollm:360m"
+    };
+})
 function enter() {
     let userText = document.createElement("p");
     let userPrefix = document.createElement("span");
