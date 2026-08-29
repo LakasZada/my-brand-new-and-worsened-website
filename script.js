@@ -47,5 +47,4 @@ async function askOllama(message){
     aiText.appendChild(aiPrefix);
     aiText.appendChild(aiResponse);
     history.appendChild(aiText);
-    console.log(jsonResponse.response)
 }
