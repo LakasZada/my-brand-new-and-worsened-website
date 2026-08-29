@@ -32,3 +32,9 @@ textarea {
 .userPrompt{
     color:rgb(57, 255, 20);
 }
+.aiPrefix{
+    color:rgb(255, 0, 236);
+}
+.aiResponse{
+    color: rgb(255, 65, 20)
+}
