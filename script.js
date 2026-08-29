@@ -1,5 +1,5 @@
 console.log("Bad-ai initiated");
-let model = "smollm:135m";
+let model = "smollm:360m";
 let prompt = document.getElementById("prompt");
 let history = document.getElementById("history");
 function enter() {
