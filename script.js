@@ -22,8 +22,11 @@ prompt.addEventListener("keydown", function (event){
         event.preventDefault();
     }
 });
-function askOllama(message){
+async function askOllama(message){
     let url = "https://ollama-api.ypac.lt/api/generate"
+    let aiText = document.createElement("p");
+    let aiPrefix = document.createElement("span");
+    let aiResponse = document.createElement("span");
     let options = {
         method: "POST",
         headers: {
@@ -35,5 +38,14 @@ function askOllama(message){
             stream: false
         })
     };
-    fetch(url, options);
+    let fullResponse = await fetch(url, options);
+    let jsonResponse = await fullResponse.json();
+    aiPrefix.textContent = model + ">> ";
+    aiPrefix.className = "aiPrefix";
+    aiResponse.className = "aiResponse";
+    aiResponse.textContent = jsonResponse.response;
+    aiText.appendChild(aiPrefix);
+    aiText.appendChild(aiResponse);
+    history.appendChild(aiText);
+    console.log(jsonResponse.response)
 }
