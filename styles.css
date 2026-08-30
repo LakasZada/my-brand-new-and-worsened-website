@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "pixel";
+    src: url("WebPlus_IBM_EGA_8x14.woff") format("woff");
+}
 body{background-color: rgb(95, 0, 177);
 }
 #main-div{background-color: rgb(255, 0, 215);
@@ -10,6 +14,7 @@ body{background-color: rgb(95, 0, 177);
     padding: 15px;
     margin:5%;
     color:rgb(255, 0, 216);
+    font-family: pixel;
 }
 #prompt{background-color: rgb(19, 0, 60);
     border: none;
@@ -37,4 +42,18 @@ textarea {
 }
 .aiResponse{
     color: rgb(255, 65, 20)
+}
+#switch{
+    border-radius: 50px;
+    border: 2px solid rgb(57, 255, 20);
+    background-color: rgb(255, 85, 20);
+    color:blue;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+}
+#stop{
+    border-radius: 50px;
+    border: 2px solid rgb(57, 255, 20);
+    background-color: rgb(255, 5, 20);
+    color:white;
 }
