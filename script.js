@@ -2,7 +2,9 @@ console.log("Bad-ai initiated");
 let model = "smollm:360m";
 let prompt = document.getElementById("prompt");
 let history = document.getElementById("history");
-let switchModel = document.getElementById("switch")
+let switchModel = document.getElementById("switch");
+let stop = document.getElementById("stop");
+let controller;
 switchModel.addEventListener("click",function (event){
     if (model === "smollm:360m"){
         model = "smollm2:360m"
@@ -31,8 +33,12 @@ prompt.addEventListener("keydown", function (event){
         event.preventDefault();
     }
 });
+stop.addEventListener("click", function (event){
+    controller.abort()
+});
 async function askOllama(message){
-    let url = "https://ollama-api.ypac.lt/api/generate"
+    controller = new AbortController;
+    let url = "https://ollama-api.ypac.lt/api/generate";
     let aiText = document.createElement("p");
     let aiPrefix = document.createElement("span");
     let aiResponse = document.createElement("span");
@@ -45,7 +51,8 @@ async function askOllama(message){
             model: model,
             prompt: message,
             stream: true
-        })
+        }),
+        signal: controller.signal
     };
 
     let fullResponse = await fetch(url, options);
@@ -66,7 +73,5 @@ async function askOllama(message){
         decodedChunk = decoder.decode(chunk.value)
         parsedChunk = JSON.parse(decodedChunk)
     };
-    console.log(parsedChunk);
-    console.log(parsedChunk.response);
 
 }
