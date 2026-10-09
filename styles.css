@@ -57,3 +57,6 @@ textarea {
     background-color: rgb(255, 5, 20);
     color:white;
 }
+.btn{
+    cursor:pointer;
+}
