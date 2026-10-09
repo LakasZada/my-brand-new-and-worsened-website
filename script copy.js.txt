@@ -50,7 +50,7 @@ async function askOllama(message){
         body: JSON.stringify({
             model: model,
             prompt: message,
-            stream: false
+            stream: true
         }),
         signal: controller.signal
     };
