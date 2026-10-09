@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "pixel";
+    src: url("WebPlus_IBM_EGA_8x14.woff") format("woff");
+}
+body{background-color: rgb(95, 0, 177);
+}
+#main-div{background-color: rgb(255, 0, 215);
+    border: 5px solid rgb(255, 65, 0);
+    padding: 15px;
+    margin:5%;
+}
+#chat{background-color: rgb(19, 0, 54);
+    border: 5px solid rgb(255, 0, 200);
+    padding: 15px;
+    margin:5%;
+    color:rgb(255, 0, 216);
+    font-family: pixel;
+}
+#message{background-color: rgb(19, 0, 60);
+    border: none;
+    color: rgb(57, 255, 20);
+}
+#message:focus{
+    border: none;
+    outline:none;
+}
+textarea {
+    field-sizing: content;
+    min-height: 1lh;
+    resize: vertical;
+    width: 75%;
+    vertical-align: top;
+}
+.userName{
+    color: rgb(255, 85, 0);
+}
+.userMessage{
+    color:rgb(57, 255, 20);
+}
+.otherUserName{
+    color:rgb(255, 0, 236);
+}
+.otherUserResponse{
+    color: rgb(255, 65, 20)
+}
+#name{
+    border-radius: 50px;
+    border: 2px solid rgb(57, 255, 20);
+    background-color: rgb(255, 85, 20);
+    color:rgb(153, 255, 0);
+    font-weight: 900;
+}
+#send{
+    border-radius: 50px;
+    border: 2px solid rgb(57, 255, 20);
+    background-color: rgb(255, 5, 20);
+    color:white;
+}
