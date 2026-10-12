@@ -6,9 +6,9 @@ function sendMessage(e) {
     const input = document.querySelector('input')
     if (input.value) {
         socket.send(input.value)
-        input.value = " "
+        input.value = ""
     }
-    input.focus
+    input.focus()
 }
 document.querySelector('form').addEventListener('submit', sendMessage)
 
@@ -18,3 +18,4 @@ socket.addEventListener("message", ({ data })  => {
     li.textContent = data
     document.querySelector('ul').appendChild(li)
 })
+// why dores it still refreshhhh?!?!?!?
